@@ -1,0 +1,5 @@
+out
+tsconfig.json
+tsconfig.*.json
+dist
+LICENSE.md

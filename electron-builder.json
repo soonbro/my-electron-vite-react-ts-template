@@ -1,0 +1,35 @@
+{
+    "appId": "com.soonbro.app",
+    "productName": "my-electron-vite-react-ts-template",
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "soonbro",
+        "repo": "my-electron-vite-react-ts-template"
+      }
+    ],
+    "asar": true,
+    "win": {
+      "target": "nsis",
+      "icon": "resources/icons/logo@256.ico",
+      "executableName": "my-electron-vite-react-ts-template"
+    },
+    "mac": {
+      "target": "dmg",
+      "icon": "resources/icons/logo@512.png"
+    },
+    "nsis": {
+      "oneClick": true,
+      "artifactName": "My-App-Setup-${version}.${ext}",
+      "uninstallDisplayName": "Uninstall My-App.."
+    },
+    "extraResources": [
+      "./resources/**"
+    ],
+    "directories": {
+      "output": "release/"
+    },
+    "files": [
+      "out/**/*"
+    ]
+  }

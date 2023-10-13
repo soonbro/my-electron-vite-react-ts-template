@@ -1,0 +1,10 @@
+**/node_modules
+*.log*
+.temp
+.env
+dist
+out
+release
+*.local
+*.code-workspace
+build
