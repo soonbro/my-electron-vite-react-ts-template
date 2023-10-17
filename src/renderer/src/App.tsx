@@ -1,7 +1,7 @@
 const App = () => {
   return (
     <div id="app">
-      <h1>Hellow World!</h1>
+      <h1>Hello World!</h1>
       <h3>
         I'm{' '}
         <a target="_blank" href="https://github.com/soonbro" rel="noopener noreferrer">
