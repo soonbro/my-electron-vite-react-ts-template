@@ -9,6 +9,9 @@
     "strictPropertyInitialization": false,
     "types": ["electron-vite/node"],
     "paths": {
+      "@renderer/*": [
+        "src/renderer/src/*"
+      ],
       "@main/*": [
         "src/main/*"
       ]

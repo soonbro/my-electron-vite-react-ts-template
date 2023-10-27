@@ -1,33 +1,26 @@
+//import { Button } from '@renderer/components/ui/button'
+import { ModeToggle } from '@renderer/components/mode-toggle'
+import { DemoReportAnIssue } from '@renderer/components/report-an-issue'
+import { cn } from '@renderer/lib/utils'
 const App = () => {
+  function DemoContainer({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) {
+    return (
+      <div
+        className={cn('flex items-center justify-center [&>div]:w-full', className)}
+        {...props}
+      />
+    )
+  }
   return (
     <div id="app">
-      <h1>Hello World!</h1>
-      <h3>
-        I'm{' '}
-        <a target="_blank" href="https://github.com/soonbro" rel="noopener noreferrer">
-          Soonbro
-        </a>
-      </h3>
-
-      <h4>
-        <a href="https://www.electronjs.org/" target="_blank">
-          Electron
-        </a>{' '}
-        +{' '}
-        <a href="https://www.reactjs.org/" target="_blank">
-          React
-        </a>{' '}
-        +{' '}
-        <a href="https://www.typescriptlang.org/" target="_black">
-          TypeScript
-        </a>
-      </h4>
-      <h5>
-        {`use `}
-        <a target="_blank" href="https://electron-vite.org" rel="noopener noreferrer">
-          electron-vite
-        </a>
-      </h5>
+      <ModeToggle></ModeToggle>
+      <div className="hidden items-start justify-center gap-6 rounded-lg p-8 md:grid lg:grid-cols-2 xl:grid-cols-3">
+        <div className="col-span-2 grid items-start gap-6 lg:col-span-2 lg:grid-cols-2 xl:col-span-1 xl:grid-cols-1">
+          <DemoContainer>
+            <DemoReportAnIssue></DemoReportAnIssue>
+          </DemoContainer>
+        </div>
+      </div>
     </div>
   )
 }
