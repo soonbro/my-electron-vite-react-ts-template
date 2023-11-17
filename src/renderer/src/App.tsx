@@ -1,33 +1,45 @@
-const App = () => {
+import { Button, ColorPicker, ConfigProvider, Divider, Input, Space, theme } from 'antd'
+import { useState } from 'react'
+
+const { useToken } = theme
+
+const App: React.FC = () => {
+  const [primary, setPrimary] = useState('#1677ff')
+  const { token } = useToken()
+
   return (
     <div id="app">
-      <h1>Hello World!</h1>
-      <h3>
-        I'm{' '}
-        <a target="_blank" href="https://github.com/soonbro" rel="noopener noreferrer">
-          Soonbro
-        </a>
-      </h3>
-
-      <h4>
-        <a href="https://www.electronjs.org/" target="_blank">
-          Electron
-        </a>{' '}
-        +{' '}
-        <a href="https://www.reactjs.org/" target="_blank">
-          React
-        </a>{' '}
-        +{' '}
-        <a href="https://www.typescriptlang.org/" target="_black">
-          TypeScript
-        </a>
-      </h4>
-      <h5>
-        {`use `}
-        <a target="_blank" href="https://electron-vite.org" rel="noopener noreferrer">
-          electron-vite
-        </a>
-      </h5>
+      <>
+        <ColorPicker
+          showText
+          value={primary}
+          onChangeComplete={color => setPrimary(color.toHexString())}
+        />
+        <Divider />
+        <ConfigProvider
+          theme={{
+            token: {
+              colorPrimary: primary,
+            },
+          }}
+        >
+          <Space>
+            <Input placeholder="Please Input" />
+            <Button type="primary">Submit</Button>
+          </Space>
+          <div
+            style={{
+              backgroundColor: token.colorPrimaryBg,
+              padding: token.padding,
+              borderRadius: token.borderRadius,
+              color: token.colorPrimaryText,
+              fontSize: token.fontSize,
+            }}
+          >
+            Consume Design Token
+          </div>
+        </ConfigProvider>
+      </>
     </div>
   )
 }
